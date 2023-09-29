@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+main{
+    display: flex;
+}
+.hero-img{
+    border-radius: 12px;
+}
+aside{
+    display: flex;
+    flex-direction: column;
+}
+.main-title{
+color: #344054;
+font-weight: bold;
+}
+.info-fill{
+    color:#667085;
+    font-weight: 500;
+}
+.credentials{
+    display: flex;
+    flex-direction: column;
+}
+.credentials > label{
+font-weight: bold;
+color:#344054
+}
+.remember-forget{
+    display: flex;
+    justify-content: space-between;
+}
+.sign-in-up{
+    display: flex;
+    flex-direction: column;
+}
