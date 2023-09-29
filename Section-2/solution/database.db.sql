@@ -1,0 +1,45 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "departments" (
+	"id"	INTEGER NOT NULL,
+	"mentor-ssn"	INTEGER NOT NULL UNIQUE,
+	"name"	TEXT NOT NULL UNIQUE,
+	"office"	TEXT NOT NULL,
+	"topic_specialty"	TEXT,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "mentor" (
+	"ssn"	INTEGER NOT NULL,
+	"fname"	TEXT NOT NULL,
+	"lname"	TEXT NOT NULL,
+	"seniority_level"	TEXT NOT NULL,
+	"salary"	INTEGER NOT NULL,
+	"office"	TEXT,
+	"topics"	TEXT NOT NULL,
+	PRIMARY KEY("ssn")
+);
+CREATE TABLE IF NOT EXISTS "topics" (
+	"id"	INTEGER NOT NULL,
+	"mento_id"	INTEGER NOT NULL UNIQUE,
+	"title"	TEXT NOT NULL,
+	"description"	TEXT,
+	PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "cohort" (
+	"id"	INTEGER NOT NULL,
+	"students_id"	INTEGER NOT NULL UNIQUE,
+	"number"	INTEGER NOT NULL UNIQUE,
+	"start_date"	NUMERIC NOT NULL UNIQUE,
+	"end_date"	date NOT NULL UNIQUE,
+	"topics"	TEXT NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "student" (
+	"no"	INTEGER NOT NULL,
+	"SSN"	INTEGER NOT NULL UNIQUE,
+	"fname"	TEXT NOT NULL,
+	"lname"	TEXT NOT NULL,
+	"dob"	date NOT NULL,
+	"skills"	TEXT,
+	PRIMARY KEY("no" AUTOINCREMENT)
+);
+COMMIT;

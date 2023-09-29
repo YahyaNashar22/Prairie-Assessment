@@ -1,0 +1,88 @@
+// creating students table
+
+CREATE TABLE "student" (
+	"no"	INTEGER NOT NULL,
+	"SSN"	INTEGER NOT NULL UNIQUE,
+	"fname"	TEXT NOT NULL,
+	"lname"	TEXT NOT NULL,
+	"dob"	date NOT NULL,
+	"skills"	TEXT,
+	PRIMARY KEY("no" AUTOINCREMENT)
+);
+
+// creating cohort table
+
+CREATE TABLE "cohort" (
+	"id"	INTEGER NOT NULL,
+	"students_id"	INTEGER NOT NULL UNIQUE,
+	"number"	INTEGER NOT NULL UNIQUE,
+	"start_date"	NUMERIC NOT NULL UNIQUE,
+	"end_date"	date NOT NULL UNIQUE,
+	"topics"	TEXT NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+// creating topics table
+
+CREATE TABLE "topics" (
+	"id"	INTEGER NOT NULL,
+	"mento_id"	INTEGER NOT NULL UNIQUE,
+	"title"	TEXT NOT NULL,
+	"description"	TEXT,
+	PRIMARY KEY("id")
+);
+
+// creating mentors table
+
+CREATE TABLE "mentor" (
+	"ssn"	INTEGER NOT NULL,
+	"fname"	TEXT NOT NULL,
+	"lname"	TEXT NOT NULL,
+	"seniority_level"	TEXT NOT NULL,
+	"salary"	INTEGER NOT NULL,
+	"office"	TEXT,
+	"topics"	TEXT NOT NULL,
+	PRIMARY KEY("ssn")
+);
+
+//creating departments table
+
+CREATE TABLE "departments" (
+	"id"	INTEGER NOT NULL,
+	"mentor-ssn"	INTEGER NOT NULL UNIQUE,
+	"name"	TEXT NOT NULL UNIQUE,
+	"office"	TEXT NOT NULL,
+	"topic_specialty"	TEXT,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+
+
+/////////////////////////////////////////////////////////
+
+select fname AND lname AND seniority_level FROM mentor;
+
+///////////////////////////////////////////////////////
+
+select fname FROM mentor where office="333"
+
+////////////////////////////////////////////////////////
+
+SELECT fname from mentor where salary>1000;
+
+///////////////////////////////////////////////////////
+
+SELECT fname AND lname AND seniority_level from mentor where salary>1000;
+
+////////////////////////////////////////////////////////////////////////////
+
+select
+
+//////////////////////////////////////////////////////////////////////////////
+
+SELECT no from student where skills="Development"
+
+/////////////////////////////////////////////////////////////////////////////
+
+SELECT ssn from student where skills="Development"
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/home/yahya/Desktop/Codi-Notes/Prairie-Assessment/Section-2/solution/database.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1645"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:maincohort"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="database.db.sql">BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS &quot;departments&quot; (
+	&quot;id&quot;	INTEGER NOT NULL,
+	&quot;mentor-ssn&quot;	INTEGER NOT NULL UNIQUE,
+	&quot;name&quot;	TEXT NOT NULL UNIQUE,
+	&quot;office&quot;	TEXT NOT NULL,
+	&quot;topic_specialty&quot;	TEXT,
+	PRIMARY KEY(&quot;id&quot; AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS &quot;mentor&quot; (
+	&quot;ssn&quot;	INTEGER NOT NULL,
+	&quot;fname&quot;	TEXT NOT NULL,
+	&quot;lname&quot;	TEXT NOT NULL,
+	&quot;seniority_level&quot;	TEXT NOT NULL,
+	&quot;salary&quot;	INTEGER NOT NULL,
+	&quot;office&quot;	TEXT,
+	&quot;topics&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;ssn&quot;)
+);
+CREATE TABLE IF NOT EXISTS &quot;topics&quot; (
+	&quot;id&quot;	INTEGER NOT NULL,
+	&quot;mento_id&quot;	INTEGER NOT NULL UNIQUE,
+	&quot;title&quot;	TEXT NOT NULL,
+	&quot;description&quot;	TEXT,
+	PRIMARY KEY(&quot;id&quot;)
+);
+CREATE TABLE IF NOT EXISTS &quot;cohort&quot; (
+	&quot;id&quot;	INTEGER NOT NULL,
+	&quot;students_id&quot;	INTEGER NOT NULL UNIQUE,
+	&quot;number&quot;	INTEGER NOT NULL UNIQUE,
+	&quot;start_date&quot;	NUMERIC NOT NULL UNIQUE,
+	&quot;end_date&quot;	date NOT NULL UNIQUE,
+	&quot;topics&quot;	TEXT NOT NULL,
+	PRIMARY KEY(&quot;id&quot; AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS &quot;student&quot; (
+	&quot;no&quot;	INTEGER NOT NULL,
+	&quot;SSN&quot;	INTEGER NOT NULL UNIQUE,
+	&quot;fname&quot;	TEXT NOT NULL,
+	&quot;lname&quot;	TEXT NOT NULL,
+	&quot;dob&quot;	date NOT NULL,
+	&quot;skills&quot;	TEXT,
+	PRIMARY KEY(&quot;no&quot; AUTOINCREMENT)
+);
+COMMIT;
+</sql><sql name="SQL 2">SELECT ssn from student where skills=&quot;Development&quot;</sql><current_tab id="1"/></tab_sql></sqlb_project>
